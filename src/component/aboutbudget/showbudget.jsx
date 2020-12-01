@@ -14,14 +14,24 @@ const ShowBudget =({total,inc,exp}) =>{
         </span>
       )
     return(
-         <div>
-             {total>=0? <h1>{total}</h1>
-             :
-             <h1>look like your expense exceed your budget...<Emoji symbol="😔"/></h1>
+         <div className="budget-container">
+           <div className="available-budget">
+           <p>Available Budget</p>
+             <h1>{total}</h1>
+            {/* //  :
+            //  <h1>look like your expense exceed your budget...<Emoji symbol="😔"/></h1> */}
             
-            }
-            <h1>{inc}</h1>
-            <h1>{exp}</h1>
+            {/* // } */}
+            </div>
+            <div className="income-container">
+              <p>Total Income</p>
+              <p>{inc}</p>
+              
+            </div>
+            <div className="expence-container">
+              <p>Total Expence</p>
+               <p>{exp}</p>
+            </div>
              
          </div>
 

@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+
+
 const BudgetForm =({type,
     description,
     value,
@@ -11,10 +13,10 @@ const BudgetForm =({type,
 }) =>{
 
     return(
-         <div className="form-conatiner">
+         <div className="form-container">
              <form onSubmit={handleSubmit}>
                  <select  onChange={handleType}>
-                     <option hidden disabled selected value> -- select an option -- </option>
+                     <option hidden disabled selected value> -- select -- </option>
                      <option value="income">Income</option>
                      <option value="expense">Expense</option>
                  </select>
@@ -36,9 +38,12 @@ const BudgetForm =({type,
                     value={value}
                     onChange={handleValue}
                  />
-                 <button type="submit">click</button>
+                 <button type="submit">
+                     Go
+                     
+                </button>
              </form>
-
+            
          </div>
     )
 

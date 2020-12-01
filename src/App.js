@@ -5,9 +5,8 @@ import {v4 as uuidv4} from "uuid";
 import ExpenseList from './component/expense/expenselist';
 import IncomeList from './component/income/incomelist';
 import ShowBudget from './component/aboutbudget/showbudget';
-
-
-
+import IncItem from './component/income/incomeitem';
+ 
 function App() {
 
 
@@ -57,6 +56,7 @@ function App() {
      setValue(event.target.value);
    };
    
+   
    const handleSubmit=(event)=>{
      event.preventDefault();
      if(description!==""&&value!==""){
@@ -83,9 +83,33 @@ function App() {
      }else{
        console.log("yaay")
      }
-     console.log(total);
+     console.log(income);
    }
   
+  
+  
+  // ------Deleting perticular entry------//
+  
+   const DeleteItem = (id,sect,value) =>{
+     if(sect==="income"){
+       
+       const filtereditem=income.filter(del=>del.id!==id);
+       setIncome([...filtereditem]);
+       const val=parseInt(value);
+       setTotal(total-val);
+       setInc(inc-val);
+
+       
+     }else{
+      const filtereditem=expense.filter(del=>del.id!==id);
+      setExpense([...filtereditem]);
+      const val=parseInt(value);
+      setTotal(total+val);
+      setExp(exp-val);
+       
+     }
+       
+   }
 
 
 
@@ -101,15 +125,23 @@ function App() {
          handleDescription={handleDescription}
          handleValue={handleValue}
          handleSubmit={handleSubmit}
-        
+
         />
-        <ExpenseList expense={expense}/>
-        <IncomeList  income={income}/>
+        <div className="list">
+         <h1>income</h1>
+         <h1>expence</h1>
+         </div>
 
+        <div className="incexp-container"> 
+        <div className="income"><IncomeList  income={income} DeleteItem={DeleteItem}/></div>
+        <div className="expence"><ExpenseList expense={expense} DeleteItem={DeleteItem}/></div>
       
-
+        
+        </div>
+        
       
     </div>
+
   );
 
   }
