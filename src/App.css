@@ -181,5 +181,7 @@ transform: translateY(-3px);
    .income-list:hover .icons{display: inline;}
 .income-list:hover .value{ transform: translateX(-20px); } 
 
-.expence-list:hover .icons{display: inline;}
+.expence-list:hover .icons{display: inline;
+    padding-right: 1px;
+}
 .expence-list:hover .value{ transform: translateX(-20px); }

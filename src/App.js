@@ -115,7 +115,12 @@ function App() {
 
   return (
     <div className="App">
-      <ShowBudget total={total} inc={inc} exp={exp}/>
+        
+       
+         
+       <ShowBudget total={total} inc={inc} exp={exp}/>
+      
+      
         
         <BudgetForm
          type={type}
